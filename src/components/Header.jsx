@@ -1,13 +1,31 @@
-
+import checkMark from "../images/checkMark.png";
 const Header = (props) => {
-
+  const changeStyle = (event) => {
+    const buttonOpacity = event.target;
+    buttonOpacity.classList.toggle("opacity");
+    const resultArr = props.arrTodo.map((item, index) => {
+      if (buttonOpacity.className === "header__check-mark") {
+        return { ...item, complete: true };
+      } else if (buttonOpacity.className === "header__check-mark opacity") {
+        return { ...item, complete: false };
+      }
+    });
+    props.setArrTodo(resultArr);
+  };
   return (
     <header className="header__todo">
       <h1>todos</h1>
       <div className="header__block-input">
         <div className="header__button-block">
           {props.arrTodo.length > 0 && (
-            <button className="header__button">click</button>
+            <button className="header__button">
+              <img
+                onClick={changeStyle}
+                className="header__check-mark opacity"
+                alt="text"
+                src={checkMark}
+              />
+            </button>
           )}
         </div>
         <form onSubmit={props.eventSubmit} className="header__form">

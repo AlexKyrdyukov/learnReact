@@ -127,9 +127,10 @@ h1 {
   justify-content: center;
   width: 40px;
   height: 40px;
+  background-color: aliceblue;
 }
 .header__input {
-  /* background-color: aliceblue; */
+  background-color: aliceblue;
   padding-left: 20px;
   width: 250px;
   height: 40px;
@@ -150,6 +151,9 @@ h1 {
   border: 0.5px solid black;
 }
 
+.main__todo-list:hover .main__image-remove {
+  opacity: 0.8;
+}
 .footer__todo {
   display: flex;
   justify-content: center;
@@ -173,4 +177,25 @@ h1 {
   max-height: 20px;
   max-width: 20px;
   margin-right: 10px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.visual {
+  opacity: 0.8;
+}
+.header__check-mark {
+  height: 20px;
+  width: 20px;
+}
+.opacity {
+  opacity: 0.4;
+}
+.hidden {
+  opacity: 0;
+}
+.main__title-text {
+  display: inline-block;
+}
+input {
+  background-color: aliceblue;
 }
