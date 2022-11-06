@@ -142,25 +142,6 @@ h1 {
   align-items: center;
   text-decoration: none;
 }
-/*
-.main__todo_decoration {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: line-through;
-}
-*/
-.main__todo-list {
-  background-color: aliceblue;
-  width: 290px;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 0.5px solid black;
-}
-
 .main__todo-list:hover .main__image-remove {
   opacity: 0.8;
 }
@@ -185,13 +166,6 @@ h1 {
   max-width: 20px;
   margin-left: 10px;
 }
-.main__image-remove {
-  max-height: 20px;
-  max-width: 20px;
-  margin-right: 10px;
-  opacity: 0;
-  transition: 0.5s;
-}
 .visual {
   opacity: 0.8;
 }
@@ -207,8 +181,6 @@ h1 {
 }
 .main__title-text {
   display: inline-block;
-  /* text-decoration: inherit; */
-  /* color: inherit; */
 }
 input {
   background-color: aliceblue;

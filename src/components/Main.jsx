@@ -46,7 +46,11 @@ const Main = (props) => {
   return (
     <main className="main__todo">
       {props.arrTodo.map((todo) => (
-        <div key={todo.id} className="main__todo-list">
+        <div
+          key={todo.id}
+          className={todo.hide ? style.mainListHide : style.mainList}
+          // className="main__todo-list"
+        >
           <img
             className="main__image-check"
             src={todo.complete ? checkbox : nullCheckbox}
@@ -63,7 +67,7 @@ const Main = (props) => {
             onBlur={readOnlyOn}
           />
           <img
-            className="main__image-remove"
+            className={style.mainRemove}
             src={remove}
             alt="text"
             onClick={() => deleteToDo(todo.id)}

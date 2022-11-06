@@ -16,23 +16,40 @@ function App() {
     if (todo.trim()) {
       setArrTodo((prevTodo) => [
         ...prevTodo,
-        { complete: false, title: todo.trim(), id: uuidv1() },
+        { complete: false, title: todo.trim(), id: uuidv1(), hide: false },
       ]);
     }
     setTodo("");
   };
   //==============================
   const showAll = () => {
-    console.log(arrTodo);
-    setArrTodo(arrTodo);
-  };
-  const showActive = () => {
-    const resultArr = arrTodo.filter((item) => item.complete === false);
+    const resultArr = arrTodo.map((item) => {
+      return { ...item, hide: false };
+    });
     setArrTodo(resultArr);
   };
-  const showCompleted = () => {};
+  const showActive = () => {
+    const resultArr = arrTodo.map((item) => {
+      if (item.complete) {
+        return { ...item, hide: true };
+      } else if (!item.complete) {
+        return { ...item, hide: false };
+      }
+    });
+    setArrTodo(resultArr);
+  };
+  const showCompleted = () => {
+    const resultArr = arrTodo.map((item) => {
+      if (item.complete) {
+        return { ...item, hide: false };
+      } else if (!item.complete) {
+        return { ...item, hide: true };
+      }
+    });
+    setArrTodo(resultArr);
+  };
   const deleteComplete = () => {
-    const resultArr = arrTodo.filter((item) => item.complete === false);
+    const resultArr = arrTodo.slice().filter((item) => item.complete === false);
     setArrTodo(resultArr);
     setButtonFlag(false);
   };
@@ -55,8 +72,8 @@ function App() {
       />
       <Footer
         arrTodo={arrTodo}
-        showCompleted={showCompleted}
         showAll={showAll}
+        showCompleted={showCompleted}
         showActive={showActive}
         deleteComplete={deleteComplete}
       />

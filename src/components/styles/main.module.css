@@ -9,3 +9,25 @@
   text-decoration: line-through;
   color: grey;
 }
+.mainList {
+  background-color: aliceblue;
+  width: 290px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.5px solid black;
+}
+.mainList:hover .mainRemove {
+  opacity: 0.8;
+}
+.mainRemove {
+  max-height: 20px;
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.mainListHide {
+  display: none;
+}
