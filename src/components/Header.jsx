@@ -1,17 +1,20 @@
 import checkMark from "../images/checkMark.png";
 const Header = (props) => {
+  //============================================
   const changeStyle = (event) => {
     const buttonOpacity = event.target;
     buttonOpacity.classList.toggle("opacity");
     const resultArr = props.arrTodo.map((item, index) => {
-      if (buttonOpacity.className === "header__check-mark") {
-        return { ...item, complete: true };
-      } else if (buttonOpacity.className === "header__check-mark opacity") {
+      if (props.buttonFlag) {
         return { ...item, complete: false };
+      } else if (!props.buttonFlag) {
+        return { ...item, complete: true };
       }
     });
     props.setArrTodo(resultArr);
+    props.setButtonFlag((prevState) => !prevState);
   };
+  //=============================================
   return (
     <header className="header__todo">
       <h1>todos</h1>

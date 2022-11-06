@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useEffect } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import { v4 as uuidv1 } from "uuid";
 import Footer from "./Footer";
 
-const App = () => {
+function App() {
+  const [buttonFlag, setButtonFlag] = useState(false);
   const [todo, setTodo] = useState("");
   const [arrTodo, setArrTodo] = useState([]);
   const changeInput = (e) => {
@@ -21,19 +21,47 @@ const App = () => {
     }
     setTodo("");
   };
+  //==============================
+  const showAll = () => {
+    console.log(arrTodo);
+    setArrTodo(arrTodo);
+  };
+  const showActive = () => {
+    const resultArr = arrTodo.filter((item) => item.complete === false);
+    setArrTodo(resultArr);
+  };
+  const showCompleted = () => {};
+  const deleteComplete = () => {
+    const resultArr = arrTodo.filter((item) => item.complete === false);
+    setArrTodo(resultArr);
+    setButtonFlag(false);
+  };
   return (
-    <div className="app">
+    <div className="App">
       <Header
         todo={todo}
         arrTodo={arrTodo}
         changeInput={changeInput}
         eventSubmit={eventSubmit}
         setArrTodo={setArrTodo}
+        buttonFlag={buttonFlag}
+        setButtonFlag={setButtonFlag}
       />
-      <Main arrTodo={arrTodo} setArrTodo={setArrTodo} />
-      <Footer todo={todo} arrTodo={arrTodo} />
+      <Main
+        arrTodo={arrTodo}
+        setArrTodo={setArrTodo}
+        buttonFlag={buttonFlag}
+        setButtonFlag={setButtonFlag}
+      />
+      <Footer
+        arrTodo={arrTodo}
+        showCompleted={showCompleted}
+        showAll={showAll}
+        showActive={showActive}
+        deleteComplete={deleteComplete}
+      />
     </div>
   );
-};
+}
 
 export default App;

@@ -1,0 +1,11 @@
+.main {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+.mainDecoration {
+  display: inline-block;
+
+  text-decoration: line-through;
+  color: grey;
+}
