@@ -1,3 +1,4 @@
 .button {
   border: 1px solid rgb(3, 0, 3);
+  border-radius: 2px;
 }

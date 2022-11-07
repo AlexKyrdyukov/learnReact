@@ -54,7 +54,7 @@ function App() {
     setButtonFlag(false);
   };
   return (
-    <div className="App">
+    <div >
       <Header
         todo={todo}
         arrTodo={arrTodo}
